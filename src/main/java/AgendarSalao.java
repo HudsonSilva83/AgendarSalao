@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.SendKeysAction;
 
-public class TesteGoogle {
+public class AgendarSalao {
 
 	@Test
 	public void Teste() {
@@ -73,6 +73,8 @@ public class TesteGoogle {
 
 			//System.out.println(mes);
 			
+			
+			//testando o projeto
 			break;
 			
 			
