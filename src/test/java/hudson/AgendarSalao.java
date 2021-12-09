@@ -1,3 +1,4 @@
+package hudson;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.mail.EmailException;
 import org.junit.After;

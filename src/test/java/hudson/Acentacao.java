@@ -1,3 +1,4 @@
+package hudson;
 	import java.text.Normalizer;
 	import java.util.regex.Pattern;
 
