@@ -34,79 +34,120 @@ public class AgendarSalao {
 	@Test
 	public void Teste() throws EmailException, InterruptedException {
 
-		//Assert.assertEquals("Acessar o site do seu condomínio", dsl.obterTitulo());
+		// Assert.assertEquals("Acessar o site do seu condomínio", dsl.obterTitulo());
 		dsl.escrever("Usuario", "hu.psilva@gmail.com");
 		String nome = dsl.obterValor("Usuario");
 		Assert.assertEquals("hu.psilva@gmail.com", nome);
 		dsl.escrever("Senha", "hpereira7");
 
 		dsl.clicarBotao("button[type=\"submit\"]");
-		//dsl.clicarBotao("a[href=\"/villehungria/ReservaDeEspacos\"][class=\"m-subCard t-reservas\"]");
-       
+		// dsl.clicarBotao("a[href=\"/villehungria/ReservaDeEspacos\"][class=\"m-subCard
+		// t-reservas\"]");
+		Thread.sleep(2000);
 		dsl.clicarBotao("a[class=\"m-subCard t-reservas\"]");
-       
-		//driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
-		Thread.sleep(1000);
-		//rever esse abaixo
-		
-		dsl.clicar("body > div.l-body__main > div > div > section > article > section > div > div.m-mainsection__body__wrapper--noBottom > div > div > div > a > div.m-cardA__header__title");
+
+		// driver.manage().timeouts().implicitlyWait(180, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		// rever esse abaixo
+
+		dsl.clicar(
+				"body > div.l-body__main > div > div > section > article > section > div > div.m-mainsection__body__wrapper--noBottom > div > div > div > a > div.m-cardA__header__title");
+
 		
 		driver.manage().timeouts().implicitlyWait(190, TimeUnit.SECONDS);
-		
+
 		String mes = dsl.obterTexto("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]");
 
 		Acentacao remove = new Acentacao();
 		String tratado = remove.trata(mes);
-		
-	
-		
-		
-		switch (tratado) {
 
-		case "DEZEMBRO 2021":
+		for (int indice= 0; indice!= 1;) {
 
+			mes = dsl.obterTexto("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]");
+			remove = new Acentacao();
+		    tratado = remove.trata(mes);
+
+			if (tratado.equals("ABRIL 2022")) {
+
+				indice = 1;
+				mes = dsl.obterTexto("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]");
+				remove = new Acentacao();
+				tratado = remove.trata(mes);
+				System.out.println("parei aqui" + tratado);
+				
+				
+			} else {
+			Thread.sleep(1000);
 			driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
-
-		case "JANEIRO 2022":
-
-			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
-			break;
-
-		case "FEVEREIRO 2022":
-
-			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
-
-		case "MARCO 2022":
-
-			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
-
-			//mes = (driver
-					//.findElement(By
-						//.cssSelector("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]"))
-					//.getText());
-			
-			 tratado = remove.trata(mes);
-
-			System.out.println(tratado);
-
-			// testando o projeto
-			//break;
-
-		case "ABRIL 2022":
-
-//			mes = (driver
-//					.findElement(By
-//							.cssSelector("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]"))
-//					.getText());
-//
-//			System.out.println(mes);
-
-			//break;
+			}
 
 		}
+
+		// int cont = 0;
+//		while(cont = 0; ) {
+//			
+//			driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
+//			
+//			if(tratado!="ABRIL 2022") {
+//				
+//			cont = cont++;	
+//				
+//			}
+
+//		switch (tratado) {
 //
-		// String c = "3";
-		// clicar na data para agendar
+//		case "DEZEMBRO 2021":
+//
+//			driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
+//
+//		case "JANEIRO 2022":
+//
+//			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
+//			break;
+//
+//		case "FEVEREIRO 2022":
+//
+//			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
+//
+//		case "MARCO 2022":
+//
+//			//driver.findElement(By.cssSelector("button[class=\"m-calendarium__header__arrow--right\"]")).click();
+//
+//			//mes = (driver
+//					//.findElement(By
+//						//.cssSelector("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]"))
+//					//.getText());
+//			
+//			 tratado = remove.trata(mes);
+//
+//			System.out.println(tratado);
+//
+//			// testando o projeto
+//			//break;
+//
+//		case "ABRIL 2022":
+//
+////			mes = (driver
+////					.findElement(By
+////							.cssSelector("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]"))
+////					.getText());
+////
+////			System.out.println(mes);
+//
+//			//break;
+//
+//		}
+////
+//		// String c = "3";
+//		// clicar na data para agendar
+
+		mes = (driver
+				.findElement(
+						By.cssSelector("div [class=\"m-calendarium__container\"] [class= \"m-calendarium__header\"]"))
+				.getText());
+
+		tratado = remove.trata(mes);
+
 		String dia = driver.findElement(By.cssSelector(
 				"div [class=\"m-calendarium__container\"] [class=\"m-calendarium__monthDays\"] li:nth-child(7)"))
 				.getText();
@@ -115,12 +156,11 @@ public class AgendarSalao {
 		String motivo = driver.findElement(By.cssSelector(
 				"div [class=\"m-calendarium__container\"] [class=\"m-calendarium__monthDays\"] li:nth-child(7)"))
 				.getAttribute("title");
-		
+
 		System.out.println(motivo);
-		
+
 		String tratadoM = remove.trata(motivo);
-		
-		
+
 		System.out.println(tratadoM);
 
 		if (tratadoM.equals("Ja existe outra reserva neste espaco!")) {
