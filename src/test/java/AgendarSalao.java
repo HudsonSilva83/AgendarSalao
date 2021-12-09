@@ -122,42 +122,42 @@ public class AgendarSalao {
 		
 		
 		System.out.println(tratadoM);
-//
-//		if (tratadoM.equals("Ja existe outra reserva neste espaco!")) {
-//
-//			System.out.println(tratadoM);
-//
-//			NotificarPorEmail enviarEmail = new NotificarPorEmail();
-//			enviarEmail.EnviarEmail(
-//					"Infelizmente nao foi possivel agendar para a Anna Clara o salao de festas para a data: " + dia
-//							+ "/04/2022, pois " + motivo + ".");
-//
-//		} else if (tratadoM == "") {
-//
-//			System.out.println("Pode Clicar para agendar");
-//			driver.findElement(By.cssSelector(
-//					"div [class=\"m-calendarium__container\"] [class=\"m-calendarium__monthDays\"] li:nth-child(9)"))
-//					.click();
-//			// agendar perigoso
-//			///// driver.findElement(By.cssSelector("button[class=\"m-button--md\"]")).click;
-//
-//			// desistir de agendar
-//			driver.findElement(By.cssSelector("button[class=\"m-buttonlink--md s-button-clean\"]")).click();
-//
-//			// Enviar o email de agendado
-//
-//			NotificarPorEmail enviarEmail = new NotificarPorEmail();
-//			enviarEmail.EnviarEmail("Agendado o salao de Festa do Ville Hungria para Anna Clara para o dia : " + dia
-//					+ "/04/2022, Parabens para a minha pessoa (Robo) pela persistencia que eu tive para com voce!.. agendamento realizado com sucesso para o dia 18/04/2022");
-//
-//		} else if (tratadoM.equals("Data nao atinge a antecedencia maxima para reserva")) {
-//
-//			NotificarPorEmail enviarEmail = new NotificarPorEmail();
-//			enviarEmail.EnviarEmail(
-//					"O Agendamento do salao de Festa do Ville Hungria para Anna Clara ainda não foi possível fazer, estamos batalhando pra conseguir de forma automatica....Vamos aguardar pois a "
-//							+ motivo + ("."));
-//
-//		}
+
+		if (tratadoM.equals("Ja existe outra reserva neste espaco!")) {
+
+			System.out.println(tratadoM);
+
+			NotificarPorEmail enviarEmail = new NotificarPorEmail();
+			enviarEmail.EnviarEmail(
+					"Infelizmente nao foi possivel agendar para a Anna Clara o salao de festas para a data: " + dia
+							+ "/04/2022, pois " + motivo + ".");
+
+		} else if (tratadoM == "") {
+
+			System.out.println("Pode Clicar para agendar");
+			driver.findElement(By.cssSelector(
+					"div [class=\"m-calendarium__container\"] [class=\"m-calendarium__monthDays\"] li:nth-child(9)"))
+					.click();
+			// agendar perigoso
+			///// driver.findElement(By.cssSelector("button[class=\"m-button--md\"]")).click;
+
+			// desistir de agendar
+			driver.findElement(By.cssSelector("button[class=\"m-buttonlink--md s-button-clean\"]")).click();
+
+			// Enviar o email de agendado
+
+			NotificarPorEmail enviarEmail = new NotificarPorEmail();
+			enviarEmail.EnviarEmail("Agendado o salao de Festa do Ville Hungria para Anna Clara para o dia : " + dia
+					+ "/04/2022, Parabens para a minha pessoa (Robo) pela persistencia que eu tive para com voce!.. agendamento realizado com sucesso para o dia 18/04/2022");
+
+		} else if (tratadoM.equals("Data nao atinge a antecedencia maxima para reserva")) {
+
+			NotificarPorEmail enviarEmail = new NotificarPorEmail();
+			enviarEmail.EnviarEmail(
+					"O Agendamento do salao de Festa do Ville Hungria para Anna Clara ainda não foi possível fazer, estamos batalhando pra conseguir de forma automatica....Vamos aguardar pois a "
+							+ motivo + ("."));
+
+		}
 
 	}
 
