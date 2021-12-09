@@ -43,6 +43,12 @@ public class DSL {
 		
 	}
 	
+	public void clicar(String x) {
+		
+		driver.findElement(By.cssSelector(x)).click();
+		
+	}
+	
 	
 
 }
