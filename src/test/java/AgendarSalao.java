@@ -194,7 +194,7 @@ public class AgendarSalao {
 
 			NotificarPorEmail enviarEmail = new NotificarPorEmail();
 			enviarEmail.EnviarEmail(
-					"O Agendamento do salao de Festa do Ville Hungria para Anna Clara ainda não foi possível fazer, estamos batalhando pra conseguir de forma automatica....Vamos aguardar pois a "
+					"O Agendamento do salaooo de Festa do Ville Hungria para Anna Clara ainda não foi possível fazer, estamos batalhando pra conseguir de forma automatica....Vamos aguardar pois a "
 							+ motivo + ("."));
 
 		}
